@@ -1,0 +1,99 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <div class="reveal">
+          <div class="slides">
+            <section>
+              <h1>Client Side Templates</h1>
+              <p>What are client side templates?</p>
+              <p>Templates which run within the browser. They typically output HTML which can be inserted into the DOM.</p>
+              <p>What can they do for you?</p>
+              <p>
+                  <ul>
+                      <li>Help decouple backend and frontend services.</li>
+                      <li>Help simplify AJAX.</li>
+                      <li>Reduce spaghetti code within browser scripting.</li>
+                  </ul>
+              </p>
+            </section>
+            <section>
+            <h2>Architecture</h2>
+            <img src="/arch.png"/>
+            </section>
+            <section>
+            <h2>TYPES OF JAVASCRIPT ENGINES</h2>
+            <h3>Procedural:</h3>
+            <ul>
+              <li>Compile Template.</li>
+              <li>Build our Context.</li>
+              <li>Render the template.</li>
+              <li>Use template results.</li>
+            </ul>
+            <h3>MVC/MVVM:</h3>
+            <ul>
+              <li>Mark up your HTML.</li>
+              <li>Write a controller/viewmodel in javascript.</li>
+              <li>Initialize the engine.</li>
+            </ul>
+            </section>
+            <section>
+              <h2>Procedural</h2>
+              <div>Simple:</div>
+              <div class="embedAMD">/scripts/simple.txt</div>
+              <p>With JQuery/AJAX:</p>
+              <div class="embedAMD">/scripts/simple.js</div>
+              <button style="font-size: 20px;" id="button-id">Click me</button>
+              </section>
+              <section>
+                <h2>Procedural Libraries</h2>
+                <ul>
+                  <li>Mustache.js - Logic Less Templates:<br/>
+                      <div class="embedF">/scripts/mustache.txt</div></li>
+                  <li>EJS - Embedded Javascript:<br/>
+                      <div class="embedF">/scripts/ejs.txt</div></li>
+                  <li>jade - Psuedo DSL similar to Ruby/HAML templates.<br/>
+                      <div class="embedF">/scripts/jade.txt</div></li>
+                 </ul>
+            </section>
+            <section>
+              <h2>MVC/MVVM:</h2>
+              <ul>
+                <li>Model: Your backend business logic code.</li>
+                <li>View:</br>
+                  <div class="embedF">/scripts/mvvm_view.html</div>
+                </li>     
+                <li>ViewModel/Controller:<br/>
+                  <div class="embedF">/scripts/mvvm.js</div>
+                </li>
+                <li>Example:</br>
+                  <input data-bind='value: firstName' />
+                  <input data-bind='value: lastName' />
+                  <span data-bind='text: fullName'> </span>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div> 
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

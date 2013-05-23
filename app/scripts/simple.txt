@@ -1,0 +1,3 @@
+var view = { title: "Procedural" };
+var output = Mustache.render("{{title}}", view);
+output == "Procedural";

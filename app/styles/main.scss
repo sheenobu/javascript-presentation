@@ -1,0 +1,13 @@
+@import '../../bower_components/reveal.js/css/reveal.css';
+@import '../../bower_components/reveal.js/css/theme/default.css';
+
+section p {
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+section ul, section li {
+  text-align: left !important;
+}
+section ul {
+  display: block !important;
+}

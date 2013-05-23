@@ -1,0 +1,15 @@
+{
+  "name": "obs",
+  "version": "0.0.0",
+  "dependencies": {
+    "sass-bootstrap": "~2.3.0",
+    "requirejs": "~2.1.4",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1",
+    "impress.js": "~0.5.3",
+    "reveal.js": "~2.4.0",
+    "mustache": "~0.7.2",
+    "knockout": "~2.2.1"
+  },
+  "devDependencies": {}
+}
