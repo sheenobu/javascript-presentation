@@ -11,3 +11,12 @@ section ul, section li {
 section ul {
   display: block !important;
 }
+
+code {
+ max-height: auto !important;
+}
+
+.small * {
+        font-size: 16px !important;
+        line-height: 20px !important;
+}

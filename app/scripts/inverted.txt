@@ -1,0 +1,13 @@
+view = {
+ "listOfThings": []
+}
+
+<ul>
+{{#listOfThings}}
+  <li>{{attributeOfThing}}</li>
+{{/listOfThings}}
+{{^listOfThings}}
+  <li>No Content.</li>
+{{/listOfThings}}
+</ul>
+

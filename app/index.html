@@ -21,32 +21,41 @@
         <div class="reveal">
           <div class="slides">
             <section>
-              <h1>Client Side Templates</h1>
+              <h2>Client Side Templates</h2>
               <p>What are client side templates?</p>
-              <p>Templates which run within the browser. They typically output HTML which can be inserted into the DOM.</p>
-              <p>What can they do for you?</p>
-              <p>
+              <p>Templates which run within the browser. They typically output HTML which can be inserted into the page using javascript.</p>
+            </section>
+            <section>
+             <p>
+                  What can they do?:
                   <ul>
                       <li>Help decouple backend and frontend services.</li>
-                      <li>Help simplify AJAX.</li>
+                      <li>Help simplify UI and AJAX code.</li>
                       <li>Reduce spaghetti code within browser scripting.</li>
+                      <li>Reduce server load by offloading HTML preperation.</li>
+                      <li>Take advantage of client-side resource caching.</li>
+                  </ul>
+              </p>
+              <p>
+                  What kind of drawbacks can they have?
+                  <ul>
+                      <li>You need AJAX with some sort of language agnostic transmission protocol (RPC, REST, SOAP).</li>
+                      <li>Increase server load by adding non-HTML preperation.</li>
+                      <li>Increase initial load and startup time of your web application.</li>
+                      <li>Performance, Stability, and Browser support can vary between different template engines.</li>
                   </ul>
               </p>
             </section>
             <section>
-            <h2>Architecture</h2>
-            <img src="/arch.png"/>
-            </section>
-            <section>
-            <h2>TYPES OF JAVASCRIPT ENGINES</h2>
-            <h3>Procedural:</h3>
+            <h2>Ways to use javascript templates</h2>
+            <p>Use a template engine and call template code procedurally:</p>
             <ul>
               <li>Compile Template.</li>
               <li>Build our Context.</li>
               <li>Render the template.</li>
               <li>Use template results.</li>
             </ul>
-            <h3>MVC/MVVM:</h3>
+            <p>Use a larger framework which provides client-side MVVM/MVC:</p>
             <ul>
               <li>Mark up your HTML.</li>
               <li>Write a controller/viewmodel in javascript.</li>
@@ -54,41 +63,119 @@
             </ul>
             </section>
             <section>
-              <h2>Procedural</h2>
+              <h2>Compiling/Using</h2>
               <div>Simple:</div>
               <div class="embedAMD">/scripts/simple.txt</div>
               <p>With JQuery/AJAX:</p>
               <div class="embedAMD">/scripts/simple.js</div>
               <button style="font-size: 20px;" id="button-id">Click me</button>
-              </section>
-              <section>
-                <h2>Procedural Libraries</h2>
-                <ul>
-                  <li>Mustache.js - Logic Less Templates:<br/>
-                      <div class="embedF">/scripts/mustache.txt</div></li>
-                  <li>EJS - Embedded Javascript:<br/>
-                      <div class="embedF">/scripts/ejs.txt</div></li>
-                  <li>jade - Psuedo DSL similar to Ruby/HAML templates.<br/>
-                      <div class="embedF">/scripts/jade.txt</div></li>
-                 </ul>
             </section>
             <section>
-              <h2>MVC/MVVM:</h2>
+               <h2>Functions and Filters</h2>
+               <div>You can use tags and filters to process your data</div>
+               <div class="embedAMD">/scripts/filters.js</div>
+               <button style="font-size: 20px;" id="f-button-id">Click me</button>
+            </section>
+            <section>
+               <h2>Inverted Sections</h2>
+               <div>You can use ^ to invert a block, where the inside shows if it is null, undefined, false, or an empty list.</div>
+               <div class="embedAMD">/scripts/inverted.txt</div>
+            </section>
+            <section>
+              <pre><code>var myListObject = ["item1","item2","item3"];</code></pre>
+              <ul>
+                <li>Mustache.js, handlebars - Logic Less Templates:<br/>
+                    <div class="embedAMD">/scripts/mustache.txt</div></li>
+                <li>EJS and Underscore - Embedded Javascript:<br/>
+                    <div class="embedAMD">/scripts/ejs.txt</div></li>
+                <li>jade - Psuedo DSL similar to Ruby/HAML templates.<br/>
+                    <div class="embedAMD">/scripts/jade.txt</div></li>
+                <li>knockoutjs, angularjs - HTML-style attributes on tags<br/>
+                    <div class="embedAMD">/scripts/knockoutjs.txt</div></li>
+               </ul>
+            </section>
+            <section>
+              <h2>MVC/MVVM Libraries:</h2>
+              <p>Typically a template engine paired up with other programming techniques</p>
+              <ul>
+                <li>emberjs: handlebars + MVC style framework</li>
+                <li>knockoutjs/angularjs: custom template enigne + MVVM + data binding</li>
+            </section>
+            <section>
+              <h2>MVC/MVVM JS Architecture</h2>
               <ul>
                 <li>Model: Your backend business logic code.</li>
-                <li>View:</br>
-                  <div class="embedF">/scripts/mvvm_view.html</div>
+                <li>View: HTML with embedded markup.</br>
+                  <div class="embedAMD">/scripts/mvvm_view.html</div>
                 </li>     
-                <li>ViewModel/Controller:<br/>
-                  <div class="embedF">/scripts/mvvm.js</div>
+                <li>ViewModel/Controller: Code responsible for transmitting data and actions between your view and your model.<br/>
                 </li>
                 <li>Example:</br>
                   <input data-bind='value: firstName' />
                   <input data-bind='value: lastName' />
                   <span data-bind='text: fullName'> </span>
+                  <button data-bind='click: reload'>Reload</button> 
                 </li>
               </ul>
             </section>
+            <section>
+              <div class="embedAMD">/scripts/mvvm_view.html</div>
+              <div class="embedAMD">/scripts/mvvm.js</div>
+              <ul>
+                  <input data-bind='value: firstName' />
+                  <input data-bind='value: lastName' />
+                  <span data-bind='text: fullName'> </span>
+                  <button data-bind='click: reload'>Reload</button>
+                </li>
+              </ul>
+            </section>
+            <section>
+              <h3>Unit Testing</h3>
+              <p>Mocha and Chai</p>
+              <div class="embedAMD">/scripts/test.txt</div>
+            </section>      
+            <section>
+              <h3>AMD/RequireJS</h3>
+              <p>API and Library for providing module loading for browser environments to provide asynchronous loading of modules.</p>
+              <p>According to the specification introduction: ... "This is particularly well suited for the browser environment where synchronous loading of modules incurs performance, usability, debugging, and cross-domain access problems."</p>
+              <p>This entire application is built with AMD!</p>
+            </section>
+            <section>
+              <h3>AMD/RequireJS</h3>
+              <div class="embedAMD">/scripts/amd.jq</div> 
+              <ul class="small">
+                <li>main entry point:<ul>
+                        <li>another_module:<ul>
+                                <li>jquery</li>
+                                <li>a_new_module:<ul>
+                                        <li>jquery</li>
+                                        <li>mustache</li>
+                                </ul></li>
+                        </ul></li>
+              </ul>
+             </section>
+             <section>
+                <h3>Performance</h3>
+                <p>Twitter began client side rendering in 2010, they quit in 2012, because of performance issues.</p>
+        
+                <ul class="small"><li><a href="http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html">http://engineering.twitter.com/2010/09/tech-behind-new-twittercom.html</a></li>
+                                  <li><a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html</a></li>
+                </ul>
+                
+             </section>
+             <section>
+                <h3>Performance pt2</h3>
+                <p>Twitter adopted asynchronous javascript loading (Similar to AMD/RequireJS).</p>
+                <p>Render initial HTML payloads on the server, only do templates on progressive updates. Easier if you use a javascript template engine with a java port.(Mustache)</p>
+                <p>Compile templates during your build alongside minification and concatenation.</p>
+                <p>Research speed differences, verify yourself.</p>
+                <p>Know your audience.</p>
+              </section>
+                <section>
+                  <h3>Last thoughts?</h3>
+                  <p>This Presentation: <a href="https://github.com/sheenobu/javascript-presentation">https://github.com/sheenobu/javascript-presentation</a></p>
+                  <p>Built in yeoman 1.0.0-beta5 - great for playing with new javascript technology.</p> 
+                </section>
           </div>
         </div> 
 

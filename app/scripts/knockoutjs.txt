@@ -1,0 +1,3 @@
+<ul data-bind="foreach: myListObject">
+ <li data-bind="text: ${$data}"></li>
+</ul>

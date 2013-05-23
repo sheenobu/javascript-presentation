@@ -1,0 +1,24 @@
+/*global describe, it */
+'use strict';
+(function () {
+    describe('ViewModel', function () {
+      describe('initialization', function () {
+        it('should bind first name and last name to full name', function(done) {
+          var mockAjaxInterface = { 
+            getName: function(cb) { cb({ firstName: 'John', lastName: 'Doe' }); }
+          };
+          new ViewModel(mockAjaxInterface, function(viewModel) {
+            viewModel.firstName().should.equal('John');
+            viewModel.firstName().should.equal('Doe');
+            viewModel.fullName().should.equal('John Doe');
+            //once we apply the view model to the view we can use jquery to assert fields
+            ko.applyBindings(viewModel);
+        
+            $('#fullName').text().should.equal('John Doe');
+
+            done(); //finish our test.
+          });
+        });
+      });
+    });
+})();
