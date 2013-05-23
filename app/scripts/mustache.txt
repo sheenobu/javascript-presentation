@@ -1,1 +1,1 @@
-<ul>{{#myListObject}}<li>{{attribute}}</li>{{/myListObject}}</ul>
+<ul>{{#myListObject}}<li>{{.}}</li>{{/myListObject}}</ul>
